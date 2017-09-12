@@ -2,6 +2,12 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/assets/vendor/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/assets/vendor/bootstrap/dist/css/bootstrap-theme.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+    script(src='/assets/vendor/jquery/dist/jquery.js')
+    script(src='/assets/vendor/bootstrap/dist/js/bootstrap.js')
+    script(src='/assets/vendor/angular/angular.js')
+    block javascript
