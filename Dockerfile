@@ -24,10 +24,10 @@ RUN npm cache clean
 
 RUN npm install
 
-RUN chown -R node /usr/src/app/node_modules
-
 USER root
+
+RUN chown -R node /usr/src/app/node_modules
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
