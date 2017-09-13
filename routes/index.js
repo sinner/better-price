@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var isAuthenticated = require('../middleware/isAuthenticated');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+var news = require('../controllers/news/HackerNewsController');
+
+// restrict index for logged in user only
+router.get('/list', isAuthenticated, news.listContainer);
 
 module.exports = router;

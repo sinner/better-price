@@ -2,6 +2,7 @@ version: "2"
 services:
   mongodb:
     image: mongo:latest
+    container_name: mongodb-test-app
     ports:
       - "27017:27017"
       - "27018:27018"
@@ -10,6 +11,7 @@ services:
 
   mongodbdata:
     image: tianon/true
+    container_name: mongodb-data
     volumes:
       - /data/db
 
@@ -22,7 +24,7 @@ services:
     cpuset: "2"
     ports:
     - "13000:3000"
-    restart: always
+    restart: on-failure
     privileged: true
     depends_on:
       - mongodb
@@ -33,4 +35,4 @@ services:
       - 8.8.4.4
     tty: true
     volumes:
-      - "./../:/usr/src/app"
+      - "./:/usr/src/app"

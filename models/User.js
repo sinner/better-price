@@ -7,7 +7,8 @@ var UserSchema = new Schema({
   password: String,
   name: String,
   email: String,
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  ofString: [Schema.Types.Mixed]
 });
 
 UserSchema.plugin(passportLocalMongoose);

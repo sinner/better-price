@@ -14,8 +14,7 @@ var config = require('./config/database');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var User = require('./models/User');
 
 var app = express();
 
@@ -45,9 +44,15 @@ app.use(expressSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-app.use('/', index);
-app.use('/users', users);
+var index = require('./routes/index');
+var access = require('./routes/access');
+
+app.use('/', access);
+app.use('/news', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
