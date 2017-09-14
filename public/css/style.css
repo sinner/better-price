@@ -8,8 +8,16 @@ a {
   color: #00B7FF;
 }
 
+.main-content {
+  min-height: 1020px;
+}
+
 .ng-cloak, [ng-cloak] {
   display: none;
+}
+
+.nav {
+  cursor: default;
 }
 
 .navbar {
@@ -26,4 +34,14 @@ a {
 .jumbotron {
   background-color: #333333;
   color: #ffffff;
+}
+
+#footer {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.navbar-dark. .nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #333333;
 }
