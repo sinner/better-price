@@ -40,8 +40,16 @@ html{
     padding-left: 10px;
 }
 
-.story-table .story-row .story-action{
+.story-table .story-row .story-action {
     width: 10%;
     overflow-x: hidden;
     float: left;
+}
+
+.story-table .story-row .story-action i.fa {
+    float: right;
+}
+
+.story-table .story-row .story-action i.fa:hover {
+    color: #666666;
 }

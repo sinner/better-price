@@ -1,4 +1,4 @@
-extends ../layout
+extends ../layout-internal
 
 block styles
     link(rel='stylesheet', href='/css/hacker-news.css')
@@ -14,7 +14,7 @@ block content
                                 span.story-author - {{ post.author }} -
                             div.story-time {{ ctrl.getFriendlyTime(post) }}
                             div.story-action
-                                i.fa.fa-trash(ng-click='ctrl.removePost(post)')
+                                i.fa.fa-trash(ng-click='ctrl.removePost(post)', ng-attr-title="Remove {{ post.story_title || post.title }}" )
             div(ng-show='!ctrl.posts')
                 .alert.alert-info(role='alert') There is no posts!
 

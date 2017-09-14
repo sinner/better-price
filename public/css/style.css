@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -10,4 +10,20 @@ a {
 
 .ng-cloak, [ng-cloak] {
   display: none;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+
+.navbar-default {
+  border-radius: 0px;
+}
+
+.jumbotron {
+  background-color: #333333;
+  color: #ffffff;
 }
