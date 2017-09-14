@@ -15,10 +15,10 @@ or
 ```
 
 ```sh
-    git clone git@github.com:sinner/express-test.git
+    cd express-test.git
 ```
 
-Being in the project directory root:
+Being in the root directory of the project:
 
 - 1.- Open your linux terminal and locate on the root project directory. Then we have to install docker.
 
