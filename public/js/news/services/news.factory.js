@@ -37,8 +37,38 @@ angular.module('news')
       return promise;
     };
 
+    /**
+     * Delete a Post
+     *
+     * @returns {Promise}
+     */
+    var deletePost = function (post) {
+      var defer = $q.defer();
+      var promise = defer.promise;
+      $http({
+        method: "PUT",
+        url: '/news/remove-post',
+        data: {
+          post: post
+        }
+      }).then(function (response) {
+        defer.resolve(response.data);
+      }, function(errorData){
+        defer.reject(errorData);
+        var errCode = 'MP-E00002';
+        var errMessage = "An error occurred while trying to remove a post.";
+        console.log({
+          "errorCode": errCode,
+          "errorMessage": errMessage,
+          "errorData": errorData
+        });
+      });
+      return promise;
+    };
+
     var Service = {
-      getPostsList: getPostsList
+      getPostsList: getPostsList,
+      deletePost: deletePost
     };
 
     return Service;

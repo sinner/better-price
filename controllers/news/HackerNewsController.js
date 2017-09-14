@@ -26,31 +26,61 @@ HackerNewsController.getPostsList = function(req, res) {
     posts: []
   };
 
-  hackerNewsService.getPostsList()
-    .then((httpResponse) => {
+  hackerNewsService.getPostsListFiltered(req.user)
+    .then((data) => {
       try{
-        let postsList = JSON.parse(httpResponse.text);
+        let postsList = data;
         jsonResponse.error = false;
         jsonResponse.success = true;
         jsonResponse.message = 'The process was completed successfully!';
         jsonResponse.posts = postsList;
+        return res.json(jsonResponse);
       }
       catch (error) {
         jsonResponse.errorDetails = error;
-        res.json(jsonResponse);
+        return res.json(jsonResponse);
       }
-
-      return jsonResponse;
-
     },
     (httpError) => {
       jsonResponse.errorDetails = httpError;
-      res.json(jsonResponse);
-    })
-    .then((jsonResponse) => {
-      res.json(jsonResponse);
+      return res.json(jsonResponse);
     });
 
+};
+
+/**
+ * @param req
+ * @param res
+ */
+HackerNewsController.deletePost = function(req, res) {
+  let jsonResponse = {
+    error: true,
+    errorDetails: null,
+    success: false,
+    message: 'It has occurred an error!',
+    posts: []
+  };
+  hackerNewsService.removePost(req.user, req.body.post)
+    .then(function(userDoc){
+      console.log(userDoc);
+      userDoc.save(function (err, userDocUpdated) {
+        if (err) {
+          jsonResponse.errorDetails = err;
+        }
+        else{
+          jsonResponse.error = false;
+          jsonResponse.success = true;
+          jsonResponse.message = 'The deletion process was completed successfully!';
+          jsonResponse.postsRemoved = userDocUpdated.postsRemoved;
+        }
+        return res.json(jsonResponse);
+      });
+    },
+    function(err){
+      console.log(err);
+      jsonResponse.errorDetails = err;
+      return res.json(jsonResponse);
+    });
 };
 
 module.exports = HackerNewsController;

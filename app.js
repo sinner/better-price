@@ -8,15 +8,17 @@ var bodyParser = require('body-parser');
 
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var passport = require('passport');
 var config = require('./config/database');
 
+var flash = require('connect-flash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./models/User');
 
 var app = express();
+
+// require('express-debug')(app, {});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +46,8 @@ app.use(expressSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

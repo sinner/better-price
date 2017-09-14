@@ -26,6 +26,12 @@ RUN npm install
 
 USER root
 
+RUN npm cache clean
+
+RUN npm install nodemon -g
+
+RUN npm install
+
 RUN chown -R node /usr/src/app/node_modules
 
 EXPOSE 3000

@@ -8,7 +8,7 @@ block content
         .row.main
             .panel-heading
                 .panel-title.text-center
-                    h1.title Sign Up
+                    .text-center.login-title Sign Up
             .main-login.main-center
                 form.form-signin(role='form', action="/register", method="post")
                     .form-group
@@ -18,6 +18,8 @@ block content
                                 span.input-group-addon
                                     i.fa.fa-user.fa(aria-hidden='true')
                                 input#name.form-control(type='text', name='name', placeholder='Enter your Name',autocomplete="off", required)
+                            if(errors && errors.name)
+                                span.error #{errors.name.message}
                     .form-group
                         label.cols-sm-2.control-label(for='email') Your Email
                         .cols-sm-10
@@ -25,6 +27,8 @@ block content
                                 span.input-group-addon
                                     i.fa.fa-envelope.fa(aria-hidden='true')
                                 input#email.form-control(type='email', name='email', placeholder='Enter your Email',autocomplete="off", required)
+                            if(errors && errors.email)
+                                span.error #{errors.email.message}
                     .form-group
                         label.cols-sm-2.control-label(for='username') Username
                         .cols-sm-10
@@ -32,6 +36,8 @@ block content
                                 span.input-group-addon
                                     i.fa.fa-users.fa(aria-hidden='true')
                                 input#username.form-control(type='text', name='username', placeholder='Enter your Username', autocomplete="off", required)
+                            if(errors && errors.username)
+                                span.error #{errors.username.message}
                     .form-group
                         label.cols-sm-2.control-label(for='password') Password
                         .cols-sm-10
@@ -39,6 +45,8 @@ block content
                                 span.input-group-addon
                                     i.fa.fa-lock.fa-lg(aria-hidden='true')
                                 input#password.form-control(type='password', name='password', placeholder='Enter your Password', required)
+                            if(errors && errors.password)
+                                span.error #{errors.password.message}
                     .form-group
                         label.cols-sm-2.control-label(for='confirm') Confirm Password
                         .cols-sm-10

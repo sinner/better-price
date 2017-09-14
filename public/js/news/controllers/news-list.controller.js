@@ -16,7 +16,7 @@ angular.module('news')
     vm.getPostsList = function() {
       NewsFactory.getPostsList().then(function(response){
         if(response.success){
-          vm.posts = response.posts.hits;
+          vm.posts = response.posts;
         }
         else {
           console.log(response.errorDetails);
@@ -27,9 +27,27 @@ angular.module('news')
       });
     };
 
+    vm.deletePost = function(post) {
+      NewsFactory.deletePost(post).then(function(response){
+          if(response.success){
+            vm.getPostsList();
+          }
+          else {
+            console.log(response.errorDetails);
+          }
+        },
+        function (error) {
+          console.log(error);
+        });
+    };
+
+    vm.redirect = function(post){
+      window.open(post.story_url, '_blank')
+      // window.location.href = post.story_url;
+    };
+
     vm.getFriendlyTime = function(post) {
       var friendlyTyme = moment(post.created_at).fromNow();
-      console.log(friendlyTyme);
       return friendlyTyme;
     };
 

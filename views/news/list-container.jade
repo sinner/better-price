@@ -10,11 +10,11 @@ block content
                 div.story-table
                     div.story-row(ng-cloak, ng-repeat="post in ctrl.posts | orderBy:'created_at_i'", ng-attr-title="{{ post.story_title || post.title }}")
                         div.story-row-content
-                            div.story-title {{ post.story_title || post.title }}
+                            div.story-title(ng-click='ctrl.redirect(post)') {{ post.story_title || post.title }}
                                 span.story-author - {{ post.author }} -
-                            div.story-time {{ ctrl.getFriendlyTime(post) }}
+                            div.story-time(ng-click='ctrl.redirect(post)') {{ ctrl.getFriendlyTime(post) }}
                             div.story-action
-                                i.fa.fa-trash(ng-click='ctrl.removePost(post)', ng-attr-title="Remove {{ post.story_title || post.title }}" )
+                                i.fa.fa-trash(ng-click='ctrl.deletePost(post)', ng-attr-title="Remove {{ post.story_title || post.title }}" )
             div(ng-show='!ctrl.posts')
                 .alert.alert-info(role='alert') There is no posts!
 

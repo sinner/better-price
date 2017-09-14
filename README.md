@@ -44,7 +44,25 @@ If something is not going well execute the following commands:
 ```
 
 ```sh
-    docker-compose up --build
+    docker-compose up -d
 ```
 
-- 6.- Open your browser on http://localhost:13000/
+- 6.- Enter to the dockerized application server:
+
+```sh
+     docker exec -it express-test-app bash
+```
+
+- 7.- You need to make sure that we have installed nodemon
+
+```sh
+     npm install -g nodemon
+```
+
+- 7.- Run the application:
+
+```sh
+     npm start
+```
+
+- 8.- Open your browser on [http://localhost:13000/](http://localhost:13000/)
