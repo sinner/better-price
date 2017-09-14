@@ -5,6 +5,9 @@ var auth = require("../controllers/access/AuthenticationController");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if (req.isAuthenticated()) {
+    res.redirect('/news/list');
+  }
   res.render('index', { title: 'Express' });
 });
 

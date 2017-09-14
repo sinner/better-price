@@ -1,10 +1,15 @@
 doctype html
 html
   head
-    title= title
+    title='Express Test'
+    meta(charset='utf-8')
+    link(rel='icon', type='image/png', href='http://expressjs.com/images/favicon.png')
     link(rel='stylesheet', href='/assets/vendor/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='/assets/vendor/bootstrap/dist/css/bootstrap-theme.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/assets/vendor/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', href='/assets/vendor/angular-loading-bar/build/loading-bar.css')
+    link(rel='stylesheet', href='/css/style.css')
+    block styles
   body
     nav.navbar.navbar-default
       div.container-fluid
@@ -34,4 +39,6 @@ html
     script(src='/assets/vendor/jquery/dist/jquery.js')
     script(src='/assets/vendor/bootstrap/dist/js/bootstrap.js')
     script(src='/assets/vendor/angular/angular.js')
+    script(src='/assets/vendor/angular-sanitize/angular-sanitize.js')
+    script(src='/assets/vendor/angular-loading-bar/build/loading-bar.js')
     block javascript

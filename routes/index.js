@@ -6,5 +6,6 @@ var news = require('../controllers/news/HackerNewsController');
 
 // restrict index for logged in user only
 router.get('/list', isAuthenticated, news.listContainer);
+router.get('/get-posts-list', isAuthenticated, news.getPostsList);
 
 module.exports = router;

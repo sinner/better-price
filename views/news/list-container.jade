@@ -1,0 +1,25 @@
+extends ../layout
+
+block styles
+    link(rel='stylesheet', href='/css/hacker-news.css')
+
+block content
+    div(ng-app='news')
+        .row(ng-controller='NewListCtrl as ctrl')
+            div(ng-show='ctrl.posts')
+                div.story-table
+                    div.story-row(ng-cloak, ng-repeat="post in ctrl.posts | orderBy:'created_at_i'", ng-attr-title="{{ post.story_title || post.title }}")
+                        div.story-row-content
+                            div.story-title {{ post.story_title || post.title }}
+                                span.story-author - {{ post.author }} -
+                            div.story-time {{ ctrl.getFriendlyTime(post) }}
+                            div.story-action
+                                i.fa.fa-trash(ng-click='ctrl.removePost(post)')
+            div(ng-show='!ctrl.posts')
+                .alert.alert-info(role='alert') There is no posts!
+
+block javascript
+    script(src='/assets/vendor/moment/min/moment.min.js')
+    script(src='/js/news/app.module.js')
+    script(src='/js/news/controllers/news-list.controller.js')
+    script(src='/js/news/services/news.factory.js')

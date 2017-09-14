@@ -1,0 +1,47 @@
+html{
+    background: #ffffff;
+}
+
+.story-table {
+    background-color: #ffffff;
+    width: 100%;
+    font-size: 13px;
+}
+
+.story-table .story-row {
+    color: #333333;
+    padding: 25px 10px 25px 10px;
+}
+
+.story-table .story-row .story-row-content {
+    position: relative;
+    bottom: 7px;
+}
+
+.story-table .story-row:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+.story-table .story-row .story-title {
+    width: 70%;
+    overflow-x: hidden;
+    float: left;
+}
+
+.story-table .story-row .story-time {
+    width: 20%;
+    overflow-x: hidden;
+    float: left;
+}
+
+.story-table .story-row .story-author {
+    color: #999999;
+    padding-left: 10px;
+}
+
+.story-table .story-row .story-action{
+    width: 10%;
+    overflow-x: hidden;
+    float: left;
+}

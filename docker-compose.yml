@@ -2,6 +2,7 @@ version: "2"
 services:
   mongodb:
     image: mongo:latest
+    hostname: mongodb
     container_name: mongodb-test-app
     ports:
       - "27017:27017"
@@ -18,7 +19,7 @@ services:
   app:
     build: .
     container_name: express-test-app
-    hostname: express-mongo
+    hostname: express-app
     mem_limit: "2G"
     memswap_limit: "2G"
     cpuset: "2"

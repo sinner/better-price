@@ -8,7 +8,7 @@ var UserSchema = new Schema({
   name: String,
   email: String,
   createdAt: { type: Date, default: Date.now },
-  ofString: [Schema.Types.Mixed]
+  postsRemoved: [Schema.Types.Mixed]
 });
 
 UserSchema.plugin(passportLocalMongoose);

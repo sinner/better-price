@@ -1,10 +1,19 @@
 extends ../layout
 
+block styles
+    link(rel='stylesheet', href='/css/login.css')
+
 block content
     .container
-        form.form-signin(role='form', action='/login', method='post')
-            h2.form-signin-heading Please sign in
-            label.sr-only(for='inputEmail')
-            input.form-control(type='text', name='username', id='inputEmail', placeholder='Username', required, autofocus)
-            input.form-control(type='password', name='password', id='inputPassword', placeholder='Password')
-            button.btn.btn-lg.btn-primary.btn-block(type='submit') LOGIN
+        .row
+            .col-sm-6.col-md-4.col-md-offset-4
+                h1.text-center.login-title Sign in to continue
+                .account-wall
+                    img.profile-img(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120', alt='')
+                    form.form-signin(role='form', action='/login', method='post')
+                        input.form-control.login-username(type='text', name='username', id='inputEmail', placeholder='Username', required, autocomplete='off', autofocus)
+                        input.form-control.login-password(type='password', name='password', id='inputPassword', placeholder='Password')
+                        button.btn.btn-lg.btn-primary.btn-block(type='submit')
+                            | Sign in
+                        span.clearfix
+                a.text-center.new-account(href='/register') Create an account
