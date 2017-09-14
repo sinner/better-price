@@ -2,6 +2,24 @@
  
 **Steps to run the project**
 
+Clone the project:
+
+```sh
+    git clone https://github.com/sinner/express-test
+```
+
+or
+
+```sh
+    git clone git@github.com:sinner/express-test.git
+```
+
+```sh
+    git clone git@github.com:sinner/express-test.git
+```
+
+Being in the project directory root:
+
 - 1.- Open your linux terminal and locate on the root project directory. Then we have to install docker.
 
 ```sh
@@ -53,10 +71,14 @@ If something is not going well execute the following commands:
      docker exec -it express-test-app bash
 ```
 
-- 7.- You need to make sure that we have installed nodemon
+- 7.- You need to make sure that we have installed nodemon and the local libraries, they should be already installed but if don't, you could execute these commands being the docker app server: 
 
 ```sh
-     npm install -g nodemon
+     npm install
+```
+
+```sh
+    npm install -g nodemon
 ```
 
 - 7.- Run the application:
