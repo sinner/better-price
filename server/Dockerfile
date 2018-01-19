@@ -1,9 +1,10 @@
-FROM node:boron
+FROM node:8
 
 # Create app directory
 WORKDIR /usr/src/app
 
 ADD . /usr/src/app
+
 # Install app dependencies
 # COPY package.json .
 # For npm@5 or later, copy package-lock.json as well
@@ -20,20 +21,26 @@ RUN chown -R nonroot /usr/src/app
 
 USER nonroot
 
-RUN npm cache clean
+RUN npm cache verify
+
+RUN npm cache clean --force
 
 RUN npm install
 
 USER root
 
-RUN npm cache clean
+RUN npm cache verify
 
-RUN npm install nodemon -g
+RUN npm cache clean --force
 
 RUN npm install
+
+RUN npm install express -g
+
+RUN npm install nodemon -g
 
 RUN chown -R node /usr/src/app/node_modules
 
 EXPOSE 3000
 
-# CMD ["npm", "start"]
+CMD ["npm", "start"]

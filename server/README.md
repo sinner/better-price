@@ -15,7 +15,7 @@ or
 ```
 
 ```sh
-    cd express-test.git
+    cd express-test
 ```
 
 Being in the root directory of the project:

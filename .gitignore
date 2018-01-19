@@ -18,6 +18,11 @@ Desktop.ini
 
 # npm
 node_modules
+server/node_modules
+server/.bash_history
+server/.config
+server/.npm
+app/node_modules
 *.log
 *.gz
 
